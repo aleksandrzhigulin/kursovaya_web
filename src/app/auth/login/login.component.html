@@ -1,0 +1,20 @@
+<form class="auth__form form-group" [formGroup]="form" (ngSubmit)="onSubmit()"
+      [ngClass]="{'has-error': (form.get('email')?.invalid && form.get('email')?.touched)
+      || (form.get('password')?.invalid && form.get('password')?.touched)}">
+
+  <input class="form-control text-input" type="text" placeholder="Логин" spellcheck="false" formControlName="email" id="email">
+  <span *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+    <span *ngIf="form.get('email')?.errors?.['required']">Email не может быть пустым.</span>
+    <span *ngIf="form.get('email')?.errors?.['email']">Введите корректный email.</span>
+  </span>
+  <input class="form-control text-input" type="password" placeholder="Пароль" spellcheck="true" formControlName="password" id="password">
+  <span *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+    <span *ngIf="form.get('password')?.errors?.['required']">Пароль не может быть пустым.</span>
+    <span *ngIf="form.get('password')?.errors?.['minlength']">Пароль должен быть больше
+      {{form.get('password')?.errors?.['minlength']['requiredLength']}} символов</span>
+  </span>
+  <button type="submit"
+  [disabled]="form.invalid">Авторизоваться</button>
+  <div class="message">{{message.text}}</div>
+  <p class="switch__link">Нет аккаунта? <a [routerLink]="'/auth/register'">Зарегистрироваться!</a></p>
+</form>

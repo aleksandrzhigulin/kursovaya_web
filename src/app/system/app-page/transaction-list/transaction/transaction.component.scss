@@ -1,0 +1,84 @@
+@import "../../../../../setup";
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
+  background: $totalwhite;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-left {
+  flex: 1;
+}
+
+.transaction-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.category {
+  font-weight: bold;
+}
+
+.description {
+  color: #888;
+  font-size: 0.9em;
+}
+
+.amount {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.buttons button {
+  margin-top: 5px;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: none;
+}
+
+.expense .buttons button {
+  color: $red;
+}
+
+.income .buttons button {
+  color: $lightgreen;
+}
+
+.buttons button:hover {
+  background-color: $white;
+}
+
+.expense {
+  border-left: 8px solid $red;
+}
+
+.income {
+  border-left: 8px solid $lightgreen;
+}
+
+.transaction-left,
+.transaction-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.transaction-left {
+  .info {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

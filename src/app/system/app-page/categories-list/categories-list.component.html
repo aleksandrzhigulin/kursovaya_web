@@ -1,0 +1,16 @@
+<strong>Категории:</strong>
+<div class="categories">
+  @for (category of categories; track category.id) {
+    <app-category (edit)="onEditCategory($event)" (deleting)="onDeleteCategory($event)" [category]="category"></app-category>
+  }
+</div>
+
+<app-mafin-popup [isOpen]="isPopupOpen" (close)="closePopup()">
+  <form class="form-group" [formGroup]="categoryForm">
+    <h1>Введите название категории</h1>
+    <input type="text" formControlName="categoryName">
+    <h1>Выберите цвет категории</h1>
+    <input type="color" formControlName="categoryColor">
+    <button [disabled]="categoryForm.invalid" (click)="updateCategory()">Изменить</button>
+  </form>
+</app-mafin-popup>

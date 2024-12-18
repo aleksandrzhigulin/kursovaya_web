@@ -1,0 +1,19 @@
+<div class="transaction" [ngClass]="{ 'expense': transaction.type == 'expense', 'income': transaction.type == 'income' }">
+  <div class="transaction-left">
+    <div class="info">
+      <div class="category">{{categoryName}}</div>
+      <div class="description" *ngIf="transaction.description">{{ transaction.description }}</div>
+    </div>
+    <div class="date">
+      <p class="date">{{transaction.date}}</p>
+    </div>
+  </div>
+  <div class="transaction-right">
+    <div class="amount">{{transaction.type === 'expense' ? '-' : '+'}}{{ transaction.amount }}</div>
+    <div class="buttons">
+      <button (click)="deleteTransaction()"><i class="fa-solid fa-trash"></i></button>
+      <button (click)="repeatTransaction()"><i class="fa-solid fa-repeat"></i></button>
+      <button (click)="editTransaction()"><i class="fa-solid fa-pen-to-square"></i></button>
+    </div>
+  </div>
+</div>

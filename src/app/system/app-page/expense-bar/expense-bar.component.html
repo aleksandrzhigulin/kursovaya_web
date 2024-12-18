@@ -1,0 +1,46 @@
+<div class="bar-container">
+  <!-- Расходы по категориям -->
+  <strong>Расходы по категориям</strong>
+  <div class="bar">
+    <div
+      *ngFor="let category of categories"
+      [ngStyle]="{
+        width: getCategoryPercentage(category, 'expense') + '%',
+        background: category.color
+      }"
+      class="bar-segment"
+    ></div>
+  </div>
+
+  <!-- Доходы по категориям -->
+  <strong>Доходы по категориям</strong>
+  <div class="bar">
+    <div
+      *ngFor="let category of categories"
+      [ngStyle]="{
+        width: getCategoryPercentage(category, 'income') + '%',
+        background: category.color
+      }"
+      class="bar-segment"
+    ></div>
+  </div>
+
+  <!-- Общий баланс -->
+  <strong>Общий баланс</strong>
+  <div class="bar">
+    <div
+      [ngStyle]="{
+        width: getBalancePercentage().income + '%',
+        background: 'green'
+      }"
+      class="bar-segment"
+    ></div>
+    <div
+      [ngStyle]="{
+        width: getBalancePercentage().expense + '%',
+        background: 'red'
+      }"
+      class="bar-segment"
+    ></div>
+  </div>
+</div>

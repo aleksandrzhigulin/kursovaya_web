@@ -1,0 +1,38 @@
+<form class="auth__form form-group" [formGroup]="form" (ngSubmit)="onSubmit()"
+      [ngClass]="{'has-error': form.invalid && form.touched}">
+  <input class="form-control text-input" type="text" placeholder="Имя" spellcheck="false" formControlName="name" id="name">
+  <span *ngIf="form.get('name')?.invalid && form.get('name')?.touched">
+    <span *ngIf="form.get('name')?.errors?.['required']">Имя не может быть пустым.</span>
+  </span>
+
+  <input class="form-control text-input" type="text" placeholder="Логин" spellcheck="false" formControlName="email" id="email">
+  <span *ngIf="form.get('email')?.invalid && form.get('email')?.touched">
+    <span *ngIf="form.get('email')?.errors?.['required']">Email не может быть пустым.</span>
+    <span *ngIf="form.get('email')?.errors?.['email']">Введите корректный email.</span>
+    <span *ngIf="form.get('email')?.errors?.['forbiddenEmail']">Email уже занят.</span>
+  </span>
+
+  <input class="form-control text-input" type="password" placeholder="Пароль" spellcheck="true" formControlName="password" id="password">
+  <span *ngIf="form.get('password')?.invalid && form.get('password')?.touched">
+    <span *ngIf="form.get('password')?.errors?.['required']">Пароль не может быть пустым. <br></span>
+    <span *ngIf="form.get('password')?.errors?.['minlength']">Пароль должен быть больше {{form.get('password')?.errors?.['minlength']['requiredLength']}} символов.<br></span>
+    <span *ngIf="form.get('password')?.errors?.['maxlength']">Пароль должен быть меньше 64 символов.<br></span>
+    <span *ngIf="form.get('password')?.errors?.['noSpecialChars']">Пароль должен содержать хотя бы один спецсимвол (&#64;, !, ?, #, _, -).<br></span>
+    <span *ngIf="form.get('password')?.errors?.['noUppercase']">Пароль должен содержать хотя бы одну заглавную букву.<br></span>
+    <span *ngIf="form.get('password')?.errors?.['hasTripleLetters']">Пароль не должен содержать три одинаковые буквы подряд.<br></span>
+  </span>
+
+  <input class="form-control text-input" type="password" placeholder="Подтвердите пароль" spellcheck="false" formControlName="confirmPassword" id="confirmPassword">
+  <span *ngIf="form.errors?.['passwordMismatch'] && form.touched">
+    Пароли не совпадают.
+  </span>
+
+  <div class="checkbox">
+    <input class="form-control" type="checkbox" id="agree" formControlName="agree">
+    <label for="agree">Я согласен с правилами пользования сервисом</label>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Зарегистрироваться</button>
+  <div class="message">{{message.text}}</div>
+  <p class="switch__link">Уже есть аккаунт? <a [routerLink]="'/auth/login'">Войти!</a></p>
+</form>

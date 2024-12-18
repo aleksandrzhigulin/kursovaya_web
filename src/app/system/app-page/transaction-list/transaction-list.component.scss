@@ -1,0 +1,149 @@
+@import "../../../../_setup.scss";
+
+strong {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    color: $red;
+    cursor: default;
+    text-align: center;
+    font-weight: bold;
+    font-size: 2px;
+  }
+
+  input[type="text"], input[type="date"], select {
+    width: 100%;
+    height: 40px;
+    border: 2px solid $black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 24px;
+  }
+
+  select {
+    padding: 0;
+    background: $totalwhite;
+  }
+
+  input[type="radio"] {
+    appearance: auto;
+  }
+
+  input[type="color"] {
+    border: none;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .transaction-type{
+    display: flex;
+    gap: 10px;
+
+    .red {
+      color: $red;
+    }
+    .green {
+      color: $green;
+    }
+
+    .custom-radio {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      width: 50%;
+
+      font-size: 24px;
+    }
+
+    .custom-radio input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .radio-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100px;
+      margin-right: 5px;
+      border: 2px solid transparent;
+      border-radius: 4px;
+      background-color: $totalwhite;
+      font-weight: bold;
+      color: $black;
+      transition: all 0.3s ease;
+    }
+
+    .custom-radio input[type="radio"]:checked + .radio-check.red {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    .custom-radio input[type="radio"]:checked + .radio-check.green {
+      background-color: #2ecc71;
+      color: white;
+    }
+
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+  button {
+    background: $red;
+    color: $cream;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
+label {
+  color: $red;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.filter__form {
+  select{
+    width: 268px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 2px solid $black;
+    border-radius: 5px;
+    height: 34px;
+    margin-left: 5px;
+    background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right $totalwhite;
+    -webkit-appearance: none;
+    background-position-x: 244px;
+  }
+
+  label {
+    font-size: 1.5rem;
+    color: black;
+  }
+
+  input[type="date"], input[type="text"] {
+    font-size: 14px;
+    height: 25px;
+    margin-top: 5px;
+    padding: 5px;
+  }
+}

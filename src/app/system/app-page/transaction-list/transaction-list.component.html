@@ -1,0 +1,61 @@
+<strong>Транзакции:</strong>
+<form [formGroup]="filterForm" (ngSubmit)="onFilterChange()" class="filter__form">
+  <div>
+    <label>Фильтр:</label>
+    <button type="button" (click)="applyFilter('7days')">Последние 7 дней</button>
+    <button type="button" (click)="applyFilter('30days')">Последние 30 дней</button>
+    <button type="button" (click)="toggleCustomFilter()">Произвольный диапазон</button>
+  </div>
+
+  <div *ngIf="showCustomFilter">
+    <label for="from">Дата от:</label>
+    <input type="date" formControlName="from" id="from"/>
+
+    <label for="to">Дата до:</label>
+    <input type="date" formControlName="to" id="to"/>
+
+    <button type="submit">Применить</button>
+  </div>
+</form>
+<div class="transactions">
+  @for (transaction of transactions; track transaction.id) {
+    <app-transaction [transaction]="transaction"
+                     (edit)="onTransactionEdit($event)"
+                     (deleting)="deleteTransaction($event)"
+                     (repeating)="repeatTransaction($event)"
+    ></app-transaction>
+  }
+</div>
+
+<app-mafin-popup [isOpen]="isPopupOpen" (close)="closePopup()">
+  <form [formGroup]="transactionForm">
+    <label for="money">Введите сумму</label>
+    <input type="text" id="money" formControlName="money">
+    <span *ngIf="transactionForm.get('money')?.errors?.['min']">Значение должно быть положительным</span>
+    <label for="categoryselect">Выберите категорию</label>
+    <select id="categoryselect" formControlName="category">
+      @for (category of categories; track category.id) {
+        <option [value]="category.id">{{category.name}}</option>
+      }
+    </select>
+
+    <label for="description">Заметка (по желанию)</label>
+    <input type="text" id="description" formControlName="description">
+
+    <label for="date">Дата</label>
+    <input type="date" id="date" formControlName="date">
+
+    <div class="transaction-type">
+      <label class="custom-radio">
+        <input type="radio" formControlName="type" value="expense" />
+        <span class="radio-check red">Трата</span>
+      </label>
+      <label class="custom-radio">
+        <input type="radio" formControlName="type" value="income" />
+        <span class="radio-check green">Доход</span>
+      </label>
+    </div>
+
+    <button [disabled]="transactionForm.invalid" (click)="updateTransaction()">Создать</button>
+  </form>
+</app-mafin-popup>

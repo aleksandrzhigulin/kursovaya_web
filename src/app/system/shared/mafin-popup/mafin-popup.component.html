@@ -1,0 +1,5 @@
+<div class="overlay" *ngIf="isOpen" (click)="closePopup()">
+  <div class="popup-container" (click)="$event.stopPropagation()">
+    <ng-content></ng-content>
+  </div>
+</div>

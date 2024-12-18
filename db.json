@@ -1,0 +1,139 @@
+{
+  "users": [
+    {
+      "email": "admin@a.com",
+      "password": "123456",
+      "id": "821f"
+    },
+    {
+      "id": "ac50",
+      "name": "dwasdas@d",
+      "email": "dwasdwas",
+      "password": "dwas"
+    },
+    {
+      "id": "0001",
+      "name": "Александр",
+      "email": "dwasdwasdwa",
+      "password": "dsaddsadwadsd@dsa"
+    },
+    {
+      "id": "21ad",
+      "name": "Александр",
+      "email": "dsaddsadwadsd@dsa",
+      "password": "dsadwdasdsa"
+    },
+    {
+      "id": "af6f",
+      "name": "Aleksandr",
+      "email": "aleksandr@mail.ru",
+      "password": "111111"
+    },
+    {
+      "id": "8d59",
+      "name": "Александр",
+      "email": "aleks@mail.ru",
+      "password": "password"
+    },
+    {
+      "id": "7644",
+      "name": "a",
+      "email": "a@a",
+      "password": "aaaaaa"
+    },
+    {
+      "id": "ffb7",
+      "name": "wad",
+      "email": "a@aa",
+      "password": "abc!Dd"
+    },
+    {
+      "id": "d869",
+      "name": "Александр",
+      "email": "b@b",
+      "password": "qwertyUIOP!"
+    }
+  ],
+  "categories": [
+    {
+      "id": "2c26",
+      "name": "Здоровье",
+      "color": "#2537c1",
+      "owner": "a@a"
+    },
+    {
+      "id": "f0b2",
+      "name": "Дом",
+      "color": "#c9d704",
+      "owner": "a@a"
+    },
+    {
+      "id": "1ff7",
+      "name": "dsa",
+      "color": "#b52626",
+      "owner": "b@b"
+    },
+    {
+      "id": "167d",
+      "name": "Моя категория",
+      "color": "#0aefff",
+      "owner": "a@a"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "5f40",
+      "amount": "250",
+      "type": "expense",
+      "description": "",
+      "date": "2024-12-15",
+      "categoryId": "f0b2",
+      "owner": "a@a"
+    },
+    {
+      "id": "801a",
+      "amount": "200",
+      "type": "expense",
+      "description": "",
+      "owner": "b@b",
+      "date": "2024-12-15",
+      "categoryId": "1ff7"
+    },
+    {
+      "id": "b9ea",
+      "amount": "5000",
+      "type": "expense",
+      "description": "",
+      "owner": "a@a",
+      "date": "2024-12-09",
+      "categoryId": "2c26"
+    },
+    {
+      "id": "3822",
+      "amount": "5000",
+      "type": "expense",
+      "description": "",
+      "owner": "a@a",
+      "date": "2024-12-09",
+      "categoryId": "2c26"
+    },
+    {
+      "id": "8f8c",
+      "amount": "5000",
+      "type": "income",
+      "description": "",
+      "owner": "a@a",
+      "date": "2024-12-01",
+      "categoryId": "2c26"
+    },
+    {
+      "id": "929e",
+      "amount": "5000",
+      "type": "income",
+      "description": "",
+      "owner": "a@a",
+      "date": "2024-12-01",
+      "categoryId": "2c26"
+    }
+  ]
+}

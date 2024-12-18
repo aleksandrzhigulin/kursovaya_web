@@ -1,0 +1,59 @@
+@import "../../../../setup";
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+strong {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    color: $red;
+    cursor: default;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    height: 40px;
+    border: 2px solid $black;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 24px;
+  }
+
+  input[type="color"] {
+    border: none;
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+  button {
+    background: $red;
+    color: $cream;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+  }
+}
